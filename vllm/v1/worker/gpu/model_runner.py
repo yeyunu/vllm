@@ -1536,7 +1536,7 @@ class GPUModelRunner(LoRAModelRunnerMixin):
 
         import os as alignment_os
         if alignment_os.environ.get("KIMI_ALIGNMENT_AUDIT_DIR"):
-            from alignment_audit import capture_vllm_v2_step
+            from vllm.v1.worker.gpu.kimi_alignment_audit import capture_vllm_v2_step
             capture_vllm_v2_step(self, logits, sample_hidden_states, input_batch)
 
         if grammar_output is not None:
