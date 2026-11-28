@@ -1,4 +1,8 @@
-# Kimi server source snapshot: attempt34
+# Two-node full-depth acceptance (2026-11-28)
+
+93 layers, 56 routed experts, top-16, BF16 on 16 Ascend devices. Rollout, independent old and gradient-enabled actor agreed on all 14,022 valid response tokens across three PPO updates. [TP vocabulary shard loading](vllm/model_executor/layers/vocab_parallel_embedding.py) · [Observed scheduler chunks](vllm/v1/engine/core.py)
+
+## Historical four-layer snapshot (2026-11-23)
 
 The retained result is attempt34 (2026-11-23 20:20:05 +08:00), four layers,
 16 experts/top16, BF16, one 8-device server using <term>Ascend 950PR&950DT系列产品</term> (950DT). Actor/reference use

@@ -467,6 +467,10 @@ class VocabParallelEmbedding(PluggableLayer):
         return ret
 
     def weight_loader(self, param: Parameter, loaded_weight: torch.Tensor):
+        if hasattr(loaded_weight, "_verl_kimi_vocab_start"):
+            from vocab_alignment import copy_vocab_rows
+            copy_vocab_rows(self, param, loaded_weight)
+            return
         output_dim = getattr(param, "output_dim", None)
         packed_dim = getattr(param, "packed_dim", None)
 
